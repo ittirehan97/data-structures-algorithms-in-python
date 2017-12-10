@@ -1,0 +1,21 @@
+exp = input("enter the postfix expression")
+
+stack_operand = []
+
+operators = ['+', '-', '*', '/']
+
+for ch in exp:
+    if ch not in operators:
+        stack_operand.append(ch)
+    elif ch in operators:
+        a = int(stack_operand.pop())
+        b = int(stack_operand.pop())
+        if ch == '+':
+            stack_operand.append(a+b)
+        elif ch == '-':
+            stack_operand.append(a-b)
+        elif ch == '*':
+            stack_operand.append(a*b)
+        else:
+            stack_operand.append(a/b)
+print(stack_operand.pop())
